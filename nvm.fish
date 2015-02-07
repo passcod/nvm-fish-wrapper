@@ -8,11 +8,11 @@ function nvm
     else if test (echo $e | cut -d\= -f1) = PATH
       set v (echo $e | cut -d\= -f2-)
       set p (echo $v | grep -oE '[^:]+' | grep -w '.nvm' | head -n1)
-      set -gx PATH "$v" PATH
+      set -gx PATH "$p" PATH
     else if test (echo $e | cut -d\= -f1) = MANPATH
       set v (echo $e | cut -d\= -f2-)
       set p (echo $v | grep -oE '[^:]+' | grep -w '.nvm' | head -n1)
-      set -gx MANPATH $v:MANPATH
+      set -gx MANPATH "$p" MANPATH
     end
   end
 end
