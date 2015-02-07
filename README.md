@@ -10,11 +10,11 @@ _NVM wrapper for the fish shell._
 
 ## Installing
 
-You need bash, fish, git, grep, cut, env, and test. Unless you have a weird
-environment, the last four should be there already. If you don't have fish
-then I'm not sure what you're doing here. Git is required for installing and
-updating, but you could conceivably copy things in place, whatever. Bash is
-required for running, but you'll never need to touch it.
+You need bash, fish, git, grep, cut, env, mktemp, and test. Unless you have a
+weird environment, the last five should be there already. If you don't have
+fish then I'm not sure what you're doing here. Git is required for installing
+and updating, but you could conceivably copy things in place, whatever. Bash
+is required for running, but you'll never need to touch it.
 
 Start by installing [nvm](https://github.com/creationix/nvm) the manual way:
 
@@ -43,15 +43,23 @@ And reload your shells.
 
 ## Using
 
-Just use `nvm` as you would in other shells.
+Just use `nvm` as you would in other shells, e.g.
 
-### Caveat
+```bash
+~> nvm install iojs
+iojs-v1.1.0 is already installed.
+Now using io.js v1.1.0
 
-The exit code isn't returned properly, so you may have difficulties scripting
-using this.
+~> node -v
+v1.1.0
 
-Also there's a known bug where no output is returned, just the env set, this is being worked on.
+~> nvm use stable
+Now using node v0.12.0
+
+~> node -v
+v0.12.0
+```
 
 ## Etc
 
-Made in an hour by Félix Saparelli, released in the Public Domain.
+Made by Félix Saparelli, released in the Public Domain.
