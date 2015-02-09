@@ -1,6 +1,6 @@
 #? NVM wrapper. Félix Saparelli. Public Domain
 #> https://github.com/passcod/nvm-fish-wrapper
-#v 1.0.0
+#v 1.0.1
 
 function nvm_set
   #echo set: k: $argv[1] v: $argv[2..-1]
@@ -38,14 +38,12 @@ end
 function nvm_mod_env
   set tmpnew $tmpdir/newenv
 
-  bash -c "source ~/.nvm/nvm.sh && source $tmpold && nvm $argv && export status=\$? && env > $tmpfile && exit \$status"
+  bash -c "source ~/.nvm/nvm.sh && source $tmpold && nvm $argv && export status=\$? && env > $tmpnew && exit \$status"
 
   set nvmstat $status
   if test $nvmstat -gt 0
     return $nvmstat
   end
-
-  echo newenv: (cat $tmpnew)
 
   for e in (cat $tmpnew)
     set p (nvm_split_env $e)
@@ -71,15 +69,18 @@ function nvm_mod_env
 end
 
 function nvm
-  set tmpdir (mktemp -d 2>/dev/null; or mktemp -d -t 'nvm-wrapper') # Linux || OS X
-  set tmpold $tmpdir/oldenv
+  set -g tmpdir (mktemp -d 2>/dev/null; or mktemp -d -t 'nvm-wrapper') # Linux || OS X
+  set -g tmpold $tmpdir/oldenv
   env | grep -E '^((NVM|NODE)_|(MAN)?PATH=)' > $tmpold
 
   if echo $argv[1] | grep -qE '^(use|install|deactivate)$'
     nvm_mod_env $argv
-    return $status
+    set s $status
   else
     bash -c "source ~/.nvm/nvm.sh && source $tmpold && nvm $argv"
-    return $status
+    set s $status
   end
+
+  rm -r $tmpdir
+  return $s
 end
