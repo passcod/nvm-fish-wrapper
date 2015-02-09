@@ -36,22 +36,18 @@ function nvm_set_path
 end
 
 function nvm_mod_env
-  set -l tmpdir (mktemp -d 2>/dev/null; or mktemp -d -t 'nvm-wrapper') # Linux || OS X
-  set -l tmpfile $tmpdir/nenv
+  set tmpnew $tmpdir/newenv
 
-  set -l oldenv (env | grep -E '^(NVM_|PATH=)')
-  echo oldenv: $oldenv
+  bash -c "source ~/.nvm/nvm.sh && source $tmpold && nvm $argv && export status=\$? && env > $tmpfile && exit \$status"
 
-  env -i MANPATH=$MANPATH NODE_PATH=$NODE_PATH $oldenv bash -c "source ~/.nvm/nvm.sh && nvm $argv && export status=\$? && env > $tmpfile && exit \$status"
-
-  set -l nvmstat $status
+  set nvmstat $status
   if test $nvmstat -gt 0
     return $nvmstat
   end
 
-  echo newenv: (cat $tmpfile)
+  echo newenv: (cat $tmpnew)
 
-  for e in (cat $tmpfile)
+  for e in (cat $tmpnew)
     set p (nvm_split_env $e)
     
     if test (echo $p[1] | cut -d_ -f1) = NVM
@@ -75,11 +71,15 @@ function nvm_mod_env
 end
 
 function nvm
+  set tmpdir (mktemp -d 2>/dev/null; or mktemp -d -t 'nvm-wrapper') # Linux || OS X
+  set tmpold $tmpdir/oldenv
+  env | grep -E '^((NVM|NODE)_|(MAN)?PATH=)' > $tmpold
+
   if echo $argv[1] | grep -qE '^(use|install|deactivate)$'
     nvm_mod_env $argv
     return $status
   else
-    bash -c "source ~/.nvm/nvm.sh && nvm $argv"
+    bash -c "source ~/.nvm/nvm.sh && source $tmpold && nvm $argv"
     return $status
   end
 end
