@@ -1,10 +1,15 @@
 #? NVM wrapper. Félix Saparelli. Public Domain
 #> https://github.com/passcod/nvm-fish-wrapper
-#v 1.0.1
+#v 1.0.2
 
 function nvm_set
-  #echo set: k: $argv[1] v: $argv[2..-1]
-  set -gx $argv[1] $argv[2..-1]
+  if test (count $argv) -gt 1
+    #echo set: k: $argv[1] v: $argv[2..-1]
+    set -gx $argv[1] $argv[2..-1]
+  else
+    #echo unset: k: $argv[1]
+    set -egx $argv[1]
+  end
 end
 
 function nvm_split_env
