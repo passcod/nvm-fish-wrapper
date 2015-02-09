@@ -1,6 +1,6 @@
 #? NVM wrapper. Félix Saparelli. Public Domain
 #> https://github.com/passcod/nvm-fish-wrapper
-#v 1.0.2
+#v 1.1.0
 
 function nvm_set
   if test (count $argv) -gt 1
@@ -29,8 +29,7 @@ function nvm_set_path
 
   set newpath
   for o in $$k
-    if echo $o | grep -qw '.nvm'
-    else
+    if echo $o | grep -qvw '.nvm'
       set newpath $newpath $o
     end
   end
@@ -78,9 +77,12 @@ function nvm
   set -g tmpold $tmpdir/oldenv
   env | grep -E '^((NVM|NODE)_|(MAN)?PATH=)' > $tmpold
 
-  if echo $argv[1] | grep -qE '^(use|install|deactivate)$'
+  set -l arg1 $argv[1]
+  if echo $arg1 | grep -qE '^(use|install|deactivate)$'
     nvm_mod_env $argv
     set s $status
+  else if test $arg1 = 'unload'
+    functions -e (functions | grep -E '^nvm(_|$)')
   else
     bash -c "source ~/.nvm/nvm.sh && source $tmpold && nvm $argv"
     set s $status
