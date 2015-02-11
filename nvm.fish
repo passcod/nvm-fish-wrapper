@@ -1,6 +1,6 @@
 #? NVM wrapper. Félix Saparelli. Public Domain
 #> https://github.com/passcod/nvm-fish-wrapper
-#v 1.1.0
+#v 1.2.0
 
 function nvm_set
   if test (count $argv) -gt 1
@@ -91,3 +91,5 @@ function nvm
   rm -r $tmpdir
   return $s
 end
+
+nvm use default 2>&1 >/dev/null
