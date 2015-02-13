@@ -24,6 +24,14 @@ Start by installing [nvm](https://github.com/creationix/nvm) the manual way:
 ~/.nvm> git checkout (git describe --abbrev=0 --tags)
 ```
 
+If you're on OS X, you can also install nvm using [Homebrew](http://brew.sh):
+
+```bash
+~> brew install nvm
+~> mkdir ~/.nvm
+~> ln -s (brew --prefix nvm)/nvm.sh ~/.nvm/nvm.sh
+```
+
 You don't need to source anything or add stuff to `.bashrc`.
 
 Then install the wrapper:
