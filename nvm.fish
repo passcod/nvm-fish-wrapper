@@ -1,6 +1,6 @@
 #? NVM wrapper. Félix Saparelli. Public Domain
 #> https://github.com/passcod/nvm-fish-wrapper
-#v 1.2.0
+#v 1.2.1
 
 function nvm_set
   if test (count $argv) -gt 1
@@ -51,7 +51,7 @@ function nvm_mod_env
 
   for e in (cat $tmpnew)
     set p (nvm_split_env $e)
-    
+
     if test (echo $p[1] | cut -d_ -f1) = NVM
       if test (count $p) -lt 2
         nvm_set $p[1] ''
@@ -61,11 +61,20 @@ function nvm_mod_env
       nvm_set $p[1] $p[2..-1]
       continue
     end
-    
+
     if test $p[1] = PATH
       nvm_set_path PATH $p[2..-1]
     else if test $p[1] = MANPATH
-      nvm_set_path MANPATH $p[2..-1]
+      set -l t (echo $p[2..-1] | cut -sd\: -f2-)
+      if test '' = "$t"
+        # We're assuming that if there's only one path
+        # in the MANPATH, we should append the default
+        # value. That may be wrong in some edge-cases.
+        set -l m $p[2..-1]:(manpath -g)
+        nvm_set MANPATH $m
+      else
+        nvm_set MANPATH $p[2..-1]
+      end
     end
   end
 
