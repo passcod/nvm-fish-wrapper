@@ -32,6 +32,9 @@ If you're on OS X, you can also install nvm using [Homebrew](http://brew.sh):
 ~> ln -s (brew --prefix nvm)/nvm.sh ~/.nvm/nvm.sh
 ```
 
+__Note__: I can't test on OS X, so there are several open bugs at the moment
+I cannot address by myself. If someone with a Mac wants to step up, please do!
+
 You don't need to source anything or add stuff to `.bashrc`.
 
 Then install the wrapper:
