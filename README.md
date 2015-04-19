@@ -32,8 +32,10 @@ If you're on OS X, you can also install nvm using [Homebrew](http://brew.sh):
 ~> ln -s (brew --prefix nvm)/nvm.sh ~/.nvm/nvm.sh
 ```
 
-__Note__: I can't test on OS X, so there are several open bugs at the moment
+__Note__: I can't test on OS X, so there are [several open bugs][OSX] at the moment
 I cannot address by myself. If someone with a Mac wants to step up, please do!
+
+[OSX]: https://github.com/passcod/nvm-fish-wrapper/labels/OS%20X
 
 You don't need to source anything or add stuff to `.bashrc`.
 
@@ -73,4 +75,11 @@ v0.12.0
 
 ## Etc
 
-Made by Félix Saparelli, released in the Public Domain.
+Made by Félix Saparelli, released in the Public Domain (or CC0-1.0 if Public
+Domain dedications are disallowed or limited in your jurisdiction).
+
+Also made possible by the [contributors] and the [many more][stargazers] [people] using it.
+
+[contributors]: https://github.com/passcod/nvm-fish-wrapper/graphs/contributors
+[stargazers]: https://github.com/passcod/nvm-fish-wrapper/stargazers
+[people]: https://twitter.com/wraithgar/status/588382384925450240
