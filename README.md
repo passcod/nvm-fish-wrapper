@@ -33,7 +33,7 @@ If you're on OS X, you can also install nvm using [Homebrew](http://brew.sh):
 ```
 
 You'll need to add `set -x NVM_DIR ~/.nvm` before sourcing nvm.fish (below) for the
-wrapper to work with the brew-installed nvm [1].
+wrapper to work with the brew-installed nvm [[1]].
 
 __Note__: I can't test on OS X, so there are [several open bugs][OSX] at the moment
 I cannot address by myself. If someone with a Mac wants to step up, please do!
