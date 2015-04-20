@@ -32,9 +32,13 @@ If you're on OS X, you can also install nvm using [Homebrew](http://brew.sh):
 ~> ln -s (brew --prefix nvm)/nvm.sh ~/.nvm/nvm.sh
 ```
 
+You'll need to add `set -x NVM_DIR ~/.nvm` before sourcing nvm.fish (below) for the
+wrapper to work with the brew-installed nvm [1].
+
 __Note__: I can't test on OS X, so there are [several open bugs][OSX] at the moment
 I cannot address by myself. If someone with a Mac wants to step up, please do!
 
+[1]: https://github.com/passcod/nvm-fish-wrapper/issues/8#issuecomment-94372226
 [OSX]: https://github.com/passcod/nvm-fish-wrapper/labels/OS%20X
 
 You don't need to source anything or add stuff to `.bashrc`.
