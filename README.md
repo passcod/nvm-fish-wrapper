@@ -36,7 +36,9 @@ You'll need to add `set -x NVM_DIR ~/.nvm` before sourcing nvm.fish (below) for 
 wrapper to work with the brew-installed nvm [[1]].
 
 __Note__: I can't test on OS X, so there are [several open bugs][OSX] at the moment
-I cannot address by myself. If someone with a Mac wants to step up, please do!
+I cannot address by myself. These bugs seem to only be Homebrew-related, so if you
+don't use Homebrew or don't have Homebrew coreutils or didn't install nvm using
+Homebrew or some combination of the three, chances are pretty good that it works!
 
 [1]: https://github.com/passcod/nvm-fish-wrapper/issues/8#issuecomment-94372226
 [OSX]: https://github.com/passcod/nvm-fish-wrapper/labels/OS%20X
