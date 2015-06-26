@@ -1,5 +1,7 @@
 # NVM fish wrapper
 
+[![GitHub tag](https://img.shields.io/github/tag/passcod/nvm-fish-wrapper.svg?style=flat-square)](https://github.com/passcod/nvm-fish-wrapper)[![License](https://img.shields.io/badge/license-CC0--1.0-blue.svg?style=flat-square)](https://creativecommons.org/publicdomain/zero/1.0/)[![Code of Conduct](https://img.shields.io/badge/contributor-covenant-123456.svg?style=flat-square)](http://contributor-covenant.org/version/1/1/0/)
+
 _NVM wrapper for the fish shell._
 
 > All nvm really does to the shell is modify `$PATH`, `$MANPATH`, and a bunch of `$NVM_*` vars. No binstubs afaics.
@@ -66,17 +68,18 @@ Just use `nvm` as you would in other shells, e.g.
 
 ```bash
 ~> nvm install iojs
-iojs-v1.1.0 is already installed.
-Now using io.js v1.1.0
+################################################### 100.0%
+WARNING: checksums are currently disabled for io.js
+Now using io.js v2.3.1
 
 ~> node -v
-v1.1.0
+v2.3.1
 
 ~> nvm use stable
-Now using node v0.12.0
+Now using node v0.12.5
 
 ~> node -v
-v0.12.0
+v0.12.5
 ```
 
 ## Etc
