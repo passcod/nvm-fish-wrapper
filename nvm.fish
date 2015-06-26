@@ -97,6 +97,6 @@ function nvm
     set s $status
   end
 
-  rm -r $tmpdir
+  command rm -r $tmpdir
   return $s
 end
