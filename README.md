@@ -2,6 +2,15 @@
 
 [![GitHub tag](https://img.shields.io/github/tag/passcod/nvm-fish-wrapper.svg?style=flat-square)](https://github.com/passcod/nvm-fish-wrapper)[![License](https://img.shields.io/badge/license-CC0--1.0-blue.svg?style=flat-square)](https://creativecommons.org/publicdomain/zero/1.0/)[![Code of Conduct](https://img.shields.io/badge/contributor-covenant-123456.svg?style=flat-square)](http://contributor-covenant.org/version/1/1/0/)
 
+A heads-up that [someone](https://github.com/edc) has gone and created a
+generic fish wrapper for bash utilities, which probably works much better
+than this. It's called [bass](https://github.com/edc/bass) and it's everything
+I wanted to do with this project, but done right. I think that's the end of
+nvm-fish-wrapper. It's been a good ride! [Thank you all](https://github.com/passcod/nvm-fish-wrapper/commit/69198)
+and go have wonderful further adventures with fish, Node.js, and nvm!
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 _NVM wrapper for the fish shell._
 
 > All nvm really does to the shell is modify `$PATH`, `$MANPATH`, and a bunch of `$NVM_*` vars. No binstubs afaics.
