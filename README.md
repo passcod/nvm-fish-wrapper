@@ -2,9 +2,9 @@
 
 [![GitHub tag](https://img.shields.io/github/tag/passcod/nvm-fish-wrapper.svg?style=flat-square)](https://github.com/passcod/nvm-fish-wrapper)[![License](https://img.shields.io/badge/license-CC0--1.0-blue.svg?style=flat-square)](https://creativecommons.org/publicdomain/zero/1.0/)[![Code of Conduct](https://img.shields.io/badge/contributor-covenant-123456.svg?style=flat-square)](http://contributor-covenant.org/version/1/1/0/)
 
-A heads-up that [someone](https://github.com/edc) has gone and created a
-generic fish wrapper for bash utilities, which probably works much better
-than this. It's called [bass](https://github.com/edc/bass) and it's everything
+A heads-up that [someone](https://github.com/derekstavis) has gone and created a
+[fish wrapper for nvm](https://github.com/derekstavis/plugin-nvm), which probably works much better than this. It's based on 
+[Oh My Fish](https://github.com/oh-my-fish/oh-my-fish) and it's everything
 I wanted to do with this project, but done right. I think that's the end of
 nvm-fish-wrapper. It's been a good ride! [Thank you all](https://github.com/passcod/nvm-fish-wrapper/commit/69198)
 and go have wonderful further adventures with fish, Node.js, and nvm!
